@@ -85,7 +85,6 @@ class Pwgen {
 
   String makePassword() throws IOException {
     String[] wordList = getRandomWords(this.words);
-    System.out.println(Arrays.toString(wordList));
     wordList = selectRandWords(wordList);
     wordList = addNums(wordList);
     wordList = addSymbols(wordList);
