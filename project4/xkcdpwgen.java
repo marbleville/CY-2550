@@ -32,7 +32,7 @@ public class xkcdpwgen {
       }
       else {
         gen.parseArgs(args);
-        System.out.println("Password: " + gen.makePassword());
+        System.out.println(gen.makePassword());
       }
     }
   }
@@ -199,9 +199,9 @@ class Utils {
   }
 
   String stringify(String[] array) {
-    String output = "";
+    String output = "|";
     for (String str : array) {
-      output += str;
+      output += str + "|";
     }
     return output;
   }
