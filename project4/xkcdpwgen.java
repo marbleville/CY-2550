@@ -21,7 +21,8 @@ public class xkcdpwgen {
       + "                          (default=0)";
 
   public static void main(String[] args) throws IOException {
-    if (stringArrayContains("-h", args) || stringArrayContains("--help", args)) {
+    if (new Utils().stringArrayContains("-h", args)
+        || new Utils().stringArrayContains("--help", args)) {
       System.out.println(helpTxt);
     }
     else {
@@ -34,14 +35,6 @@ public class xkcdpwgen {
         System.out.println("Password: " + gen.makePassword());
       }
     }
-  }
-
-  static boolean stringArrayContains(String str, String[] args) {
-    boolean doesContain = false;
-    for (String arg : args) {
-      doesContain = str.equals(arg);
-    }
-    return doesContain;
   }
 }
 
@@ -92,6 +85,7 @@ class Pwgen {
 
   String makePassword() throws IOException {
     String[] wordList = getRandomWords(this.words);
+    System.out.println(Arrays.toString(wordList));
     wordList = selectRandWords(wordList);
     wordList = addNums(wordList);
     wordList = addSymbols(wordList);
@@ -211,5 +205,15 @@ class Utils {
       output += str;
     }
     return output;
+  }
+
+  boolean stringArrayContains(String str, String[] args) {
+    boolean doesContain = false;
+    for (String arg : args) {
+      if (str.equals(arg)) {
+        doesContain = true;
+      }
+    }
+    return doesContain;
   }
 }
