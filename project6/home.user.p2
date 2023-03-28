@@ -1,0 +1,18 @@
+# Last Modified: Tue Mar 28 19:36:25 2023
+abi <abi/3.0>,
+
+include <tunables/global>
+
+/home/marbleville/p2 flags=(audit) {
+  include <abstractions/base>
+
+  /home/marbleville/p2 mr,
+  /tmp/project* wr,
+  @{HOME}/.project2/config wr,
+  /var/log/syslog r,
+  /etc/{fstab,crontab,passwd,hosts} wr,
+  /run/systemd/resolve/stub-resolv.conf r,
+  /proc/{version,buddyinfo} r,
+  @{HOME}/template r,
+  network inet6 tcp,
+}
